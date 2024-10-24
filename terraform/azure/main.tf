@@ -133,14 +133,14 @@ resource "azurerm_network_security_group" "nsgvm" {
 
 
 #-------------------------------------------------------------------------------#
-/*
+
 resource "azurerm_network_interface" "vm01" {
     name                = "vm01"
     location            = azurerm_resource_group.rg.location
     resource_group_name = azurerm_resource_group.rg.name
     ip_configuration {
         name                          = "vm01"
-        subnet_id                     = azurerm_subnet.subnet1a.id
+        subnet_id                     = azurerm_subnet.subnet1a_vnet10.id
         private_ip_address_allocation = "Dynamic"
     }
 }
@@ -151,11 +151,12 @@ resource "azurerm_network_interface" "vm02" {
     resource_group_name = azurerm_resource_group.rg.name
     ip_configuration {
         name                          = "vm02"
-        subnet_id                     = azurerm_subnet.subnet1a.id
+        subnet_id                     = azurerm_subnet.subnet1c_vnet20.id
         private_ip_address_allocation = "Dynamic"
     }
 }
 
+/*
 resource "azurerm_network_interface" "vm03" {
     name                = "vm03"
     location            = azurerm_resource_group.rg.location
@@ -180,6 +181,7 @@ resource "azurerm_network_interface" "vm04" {
     }
 }
 
+*/
 resource "azurerm_availability_set" "asvm" {
     name                = "asvm"
     location            = azurerm_resource_group.rg.location
@@ -260,6 +262,7 @@ CUSTOM_DATA
     }
 }
 
+/*
 resource "azurerm_virtual_machine" "vm03" {
     name                             = "vm03"
     location                         = azurerm_resource_group.rg.location
@@ -334,6 +337,9 @@ CUSTOM_DATA
     }
 }
 
+
+*/
+
 resource "azurerm_public_ip" "lb" {
     name                = "lb"
     location            = azurerm_resource_group.rg.location
@@ -368,6 +374,8 @@ resource "azurerm_lb_rule" "lb" {
     load_distribution              = "Default"
 }
 
+
+
 resource "azurerm_network_interface_backend_address_pool_association" "vm01" {
     ip_configuration_name   = "vm01"
     network_interface_id    = azurerm_network_interface.vm01.id
@@ -380,6 +388,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "vm02" {
     backend_address_pool_id = azurerm_lb_backend_address_pool.lb.id
 }
 
+/*
 resource "azurerm_network_interface_backend_address_pool_association" "vm03" {
     ip_configuration_name   = "vm03"
     network_interface_id    = azurerm_network_interface.vm03.id
@@ -392,8 +401,9 @@ resource "azurerm_network_interface_backend_address_pool_association" "vm04" {
     backend_address_pool_id = azurerm_lb_backend_address_pool.lb.id
 }
 
+*/
+
 output "lb_fqdn" {
     value = azurerm_public_ip.lb.fqdn
 }
 
-*/
