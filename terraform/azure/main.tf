@@ -19,14 +19,15 @@ resource "azurerm_virtual_network" "vnet20" {
 
 
 resource "azurerm_subnet" "subnet1a_vnet10" {
-    name                 = "subnet1a"
+    name                 = "subnet1a_vnet10"
     resource_group_name  = azurerm_resource_group.rg.name
     virtual_network_name = azurerm_virtual_network.vnet10.name
     address_prefixes     = ["10.0.5.0/24"]
 }
 
+/*
 resource "azurerm_subnet" "subnet1c_vnet10" {
-    name                 = "subnet1a"
+    name                 = "subnet1a_vnet10"
     resource_group_name  = azurerm_resource_group.rg.name
     virtual_network_name = azurerm_virtual_network.vnet10.name
     address_prefixes     = ["10.0.6.0/24"]
@@ -38,9 +39,10 @@ resource "azurerm_subnet" "subnet1a_vnet20" {
     virtual_network_name = azurerm_virtual_network.vnet20.name
     address_prefixes     = ["10.1.5.0/24"]
 }
+*/
 
 resource "azurerm_subnet" "subnet1c_vnet20" {
-    name                 = "subnet1c"
+    name                 = "subnet1c_vnet20"
     resource_group_name  = azurerm_resource_group.rg.name
     virtual_network_name = azurerm_virtual_network.vnet20.name
     address_prefixes     = ["10.1.6.0/24"]
@@ -51,6 +53,8 @@ resource "azurerm_subnet_network_security_group_association" "nsgsubnet1a_vnet10
     network_security_group_id = azurerm_network_security_group.nsgvm.id
 }
 
+
+/*
 resource "azurerm_subnet_network_security_group_association" "nsgsubnet1c_vnet10" {
     subnet_id                 = azurerm_subnet.subnet1c_vnet10.id
     network_security_group_id = azurerm_network_security_group.nsgvm.id
@@ -60,6 +64,8 @@ resource "azurerm_subnet_network_security_group_association" "nsgsubnet1a_vnet20
     subnet_id                 = azurerm_subnet.subnet1a_vnet20.id
     network_security_group_id = azurerm_network_security_group.nsgvm.id  
 }
+*/
+
 
 resource "azurerm_subnet_network_security_group_association" "nsgsubnet1c_vnet20" {
     subnet_id                 = azurerm_subnet.subnet1c_vnet20.id
