@@ -133,7 +133,7 @@ resource "azurerm_network_security_group" "nsgvm" {
 
 
 #-------------------------------------------------------------------------------#
-
+/*
 resource "azurerm_network_interface" "vm01" {
     name                = "vm01"
     location            = azurerm_resource_group.rg.location
@@ -182,6 +182,7 @@ resource "azurerm_network_interface" "vm04" {
 }
 
 */
+/*
 resource "azurerm_availability_set" "asvm" {
     name                = "asvm"
     location            = azurerm_resource_group.rg.location
@@ -339,7 +340,7 @@ CUSTOM_DATA
 
 
 */
-
+/*
 resource "azurerm_public_ip" "lb" {
     name                = "lb"
     location            = azurerm_resource_group.rg.location
@@ -348,6 +349,7 @@ resource "azurerm_public_ip" "lb" {
     domain_name_label   = "staticsitelbtfwilliamiac"
 }
 
+/*
 resource "azurerm_lb" "lb" {
     name                = "lb"
     location            = azurerm_resource_group.rg.location
@@ -358,10 +360,12 @@ resource "azurerm_lb" "lb" {
     }
 }
 
+/*
 resource "azurerm_lb_backend_address_pool" "lb" {
     name            = "lb"
     loadbalancer_id = azurerm_lb.lb.id
 }
+
 
 resource "azurerm_lb_rule" "lb" {
     name                           = "HTTP"
@@ -374,8 +378,8 @@ resource "azurerm_lb_rule" "lb" {
     load_distribution              = "Default"
 }
 
-
-
+*/
+/*
 resource "azurerm_network_interface_backend_address_pool_association" "vm01" {
     ip_configuration_name   = "vm01"
     network_interface_id    = azurerm_network_interface.vm01.id
@@ -403,7 +407,9 @@ resource "azurerm_network_interface_backend_address_pool_association" "vm04" {
 
 */
 
+/*
 output "lb_fqdn" {
     value = azurerm_public_ip.lb.fqdn
 }
 
+*/
