@@ -46,22 +46,22 @@ resource "azurerm_subnet" "subnet1c_vnet20" {
     address_prefixes     = ["10.1.6.0/24"]
 }
 
-resource "azurerm_subnet_network_security_group_association" "nsgsubnet1a" {
+resource "azurerm_subnet_network_security_group_association" "nsgsubnet1a_vnet10" {
     subnet_id                 = azurerm_subnet.subnet1a_vnet10.id
     network_security_group_id = azurerm_network_security_group.nsgvm.id
 }
 
-resource "azurerm_subnet_network_security_group_association" "nsgsubnet1c" {
+resource "azurerm_subnet_network_security_group_association" "nsgsubnet1c_vnet10" {
     subnet_id                 = azurerm_subnet.subnet1c_vnet10.id
     network_security_group_id = azurerm_network_security_group.nsgvm.id
 }
 
-resource "azurerm_subnet_network_security_group_association" "nsgsubnet1a" {
+resource "azurerm_subnet_network_security_group_association" "nsgsubnet1a_vnet20" {
     subnet_id                 = azurerm_subnet.subnet1a_vnet20.id
     network_security_group_id = azurerm_network_security_group.nsgvm.id  
 }
 
-resource "azurerm_subnet_network_security_group_association" "nsgsubnet1c" {
+resource "azurerm_subnet_network_security_group_association" "nsgsubnet1c_vnet20" {
     subnet_id                 = azurerm_subnet.subnet1c_vnet20.id
     network_security_group_id = azurerm_network_security_group.nsgvm.id
 }
