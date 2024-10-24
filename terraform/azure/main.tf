@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "rg" {
-    name     = "rg-staticsite-lb-multicloud-tf-williamiaciac"
+    name     = "rg-staticsite-lb-multicloud-tf-williamiaciac-rgterra"
     location = "brazilsouth"
 }
 
